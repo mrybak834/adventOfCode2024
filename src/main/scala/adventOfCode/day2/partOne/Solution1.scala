@@ -17,23 +17,15 @@ object Solution1 extends Solution[String, Int]:
             var guardHit = false
             var trend = 0
             for(
-                Array(current, next) <- levels.sliding(2,1)
+                (current, next) <- levels.sliding(2,1).map { case Array(c,n) => (c.toInt, n.toInt)}
 
                 if !guardHit
                 if {
-                    val difference = next.toInt - current.toInt
-                    val validDifference = difference != 0 && math.abs(difference) <= 3
-                    val validPattern = 
-                        if (trend == 0 || (trend < 0 && difference < 0) || (trend > 0 && difference > 0))
-                            trend = difference
-                            true
-                        else false
-
-                    val continue = validDifference && validPattern
-                    if(!continue) 
-                        guardHit = true
-                    
-                    continue
+                    val difference = next - current
+                    val valid = validSequence(difference, trend)
+                    trend = difference
+                    if(!valid) guardHit = true
+                    valid
                 }
             ) {}
             
@@ -45,3 +37,12 @@ object Solution1 extends Solution[String, Int]:
 
         source.close()
         safeReports
+
+    def validSequence(difference: Int, trend: Int): Boolean =
+        val validDifference = difference != 0 && math.abs(difference) <= 3
+        val validPattern = 
+            trend == 0 || 
+            (trend < 0 && difference < 0) || 
+            (trend > 0 && difference > 0)
+
+        validDifference && validPattern
