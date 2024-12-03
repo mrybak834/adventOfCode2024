@@ -17,7 +17,7 @@ import adventOfCode.benchmarkSolutions
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 class SolutionRunner:
     @Benchmark
-    def twoPointer(): Unit =
+    def slidingForLoopGuard(): Unit =
         Solution1.solve(SolutionRunner.input)
 
 

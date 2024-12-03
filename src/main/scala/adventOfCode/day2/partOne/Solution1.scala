@@ -5,7 +5,7 @@ import scala.io.Source
 import scala.collection.mutable.PriorityQueue
 
 object Solution1 extends Solution[String, Int]:
-    val name = "Two Pointer"
+    val name = "Sliding: for loop guard"
 
     def solve(name: String): Int = 
         var safeReports = 0
@@ -32,14 +32,12 @@ object Solution1 extends Solution[String, Int]:
                     val continue = validDifference && validPattern
                     if(!continue) 
                         guardHit = true
-                        println(s"report UNSAFE: $report")
                     
                     continue
                 }
             ) {}
             
             if (!guardHit)
-                println(s"report safe: $report")
                 safeReports += 1
 
             guardHit = false
