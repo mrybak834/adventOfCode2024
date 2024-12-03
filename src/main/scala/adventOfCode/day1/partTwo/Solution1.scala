@@ -1,26 +1,9 @@
 package adventOfCode.day1.partTwo
 
 import scala.io.Source
-import scala.collection.mutable.PriorityQueue
-
-import scala.collection.mutable.ArrayBuffer
-import scala.util.Random
-
-import org.reflections.Reflections
-import org.reflections.scanners.Scanners.SubTypes
-import scala.jdk.CollectionConverters._
-import adventOfCode.getSolutions
 import adventOfCode.Solution
-import adventOfCode.benchmarkSolutions
-import scala.collection.immutable.TreeSet
 
-@main def partTwo =
-    val solutions = getSolutions[Solution[String, Int]]("adventOfCode.day1.partTwo")
-    println()
-
-    benchmarkSolutions(solutions, "/workspaces/adventofcode/src/main/scala/day1/input.txt", printResult = true)
-
-object Solution5 extends Solution[String, Int]:
+object Solution1 extends Solution[String, Int]:
     val name = "Map of Tuples"
 
     def solve(name: String): Int = 

@@ -1,5 +1,7 @@
 val scala3Version = "3.5.2"
 
+enablePlugins(JmhPlugin)
+
 lazy val root = project
   .in(file("."))
   .settings(
