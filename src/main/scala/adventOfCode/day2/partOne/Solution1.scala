@@ -41,6 +41,7 @@ object Solution1 extends Solution[String, Int]:
                 safeReports += 1
 
             guardHit = false
+            trend = 0
 
         source.close()
         safeReports
