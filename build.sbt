@@ -10,6 +10,7 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9" % Test,
     libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
     libraryDependencies += "org.reflections" % "reflections" % "0.10.2",
     libraryDependencies += "com.chuusai" % "shapeless_2.13" % "2.4.0-M1",
